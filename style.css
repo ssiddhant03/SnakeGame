@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#scoreBox{
+    position: absolute;
+    top: 70px;
+    left: 100px;
+    font-size: 35px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+#hiscoreBox{
+    position: absolute;
+    top: 30px;
+    left: 100px;
+    font-size: 35px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+#board{
+    background: rgba(111, 241, 85, 0.764);
+    width: 90vmin;
+    height: 90vmin;
+    display: grid;
+    border: 20px solid rgb(53, 61, 71);
+    grid-template-rows: repeat(18, 1fr);
+    grid-template-columns: repeat(18, 1fr);
+    margin: 2px;
+}
+
+.head{
+    background-color: black;
+    border: .25vmin solid white;
+    border-radius: 13px;
+    transform: scale(1.1);;
+}
+
+.snake{
+    background-color: blue;
+    border-radius: 13px;
+    border: .25vmin solid white;
+}
+
+.food{
+    background-color: red;
+    border: .25vmin solid black;
+    border-radius: 20px;
+}
