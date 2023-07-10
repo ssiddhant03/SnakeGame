@@ -1,13 +1,13 @@
 // Game Constants & Variables
-const foodSound = new Audio();
-const gameOverSound = new Audio();
-const moveSound = new Audio();
-const musicSound = new Audio();
+const foodSound = new Audio('food.mp3');
+const gameOverSound = new Audio('gameover.mp3');
+const moveSound = new Audio('move.mp3');
+const musicSound = new Audio('music.mp3');
 let velocity = {x:0, y:0};
 let speed = 6;
 let score = 0;
 let lastPaintTime = 0;
-let snakeArr = [
+snakeArr = [
     {x:17, y:17}
 ]
 food = {x:10, y:10}; 
