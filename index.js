@@ -39,7 +39,7 @@ function gameEngine(){
         gameOverSound.play();
         musicSound.pause();
         velocity = {x:0, y:0};
-        alert("Game Over. Press any key to play again");
+        alert("Game Over. Press enter to play again");
         speed = 6;
         snakeArr = [{x:13, y:15}];
         musicSound.play();
