@@ -40,6 +40,7 @@ function gameEngine(){
         musicSound.pause();
         velocity = {x:0, y:0};
         alert("Game Over. Press any key to play again");
+        speed = 6;
         snakeArr = [{x:13, y:15}];
         musicSound.play();
         score = 0;
@@ -48,6 +49,7 @@ function gameEngine(){
     if(snakeArr[0].y === food.y && snakeArr[0].x === food.x){
         foodSound.play();
         score+=1;
+        if(score%10==0)speed++;
         if(score>hiscoreval){
             hiscoreval=score;
             localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
