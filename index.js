@@ -4,7 +4,10 @@ const gameOverSound = new Audio('gameover.mp3');
 const moveSound = new Audio('move.mp3');
 const musicSound = new Audio('music.mp3');
 let velocity = {x:0, y:0};
-let speed = 6;
+let speed = prompt("Write a level from 1 to 50");
+while(speed>50 || speed<1){
+    speed=prompt("Not a valid level...Write a level between 1 and 50")
+}
 let score = 0;
 let lastPaintTime = 0;
 snakeArr = [
@@ -35,12 +38,13 @@ function isCollide(snake){
 
 function gameEngine(){
     // Updating the Snake array & Food
+    levelBox.innerHTML="Level: "+speed;
     if(isCollide(snakeArr)){
         gameOverSound.play();
         musicSound.pause();
         velocity = {x:0, y:0};
         alert("Game Over. Press enter to play again");
-        speed = 6;
+        // speed = prompt("Write a level from 1 to 30");
         snakeArr = [{x:13, y:15}];
         musicSound.play();
         score = 0;
@@ -49,7 +53,7 @@ function gameEngine(){
     if(snakeArr[0].y === food.y && snakeArr[0].x === food.x){
         foodSound.play();
         score+=1;
-        if(score%10==0)speed++;
+        // if(score%10==0)speed++;
         if(score>hiscoreval){
             hiscoreval=score;
             localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
@@ -106,30 +110,49 @@ else{
 }
 window.requestAnimationFrame(main);
 window.addEventListener('keydown', e =>{
-    velocity = {x:0, y:0} //Start the game
+    if(score==0)velocity = {x:0, y:0} //Start the game
     moveSound.play();
-    switch(e.key){
-        case "ArrowUp":
-            console.log("ArrowUp")
-            velocity.x = 0;
-            velocity.y = -1;
-            break;
-        case "ArrowDown":
-            console.log("ArrowDown")
+    if (e.key === "ArrowUp") {
+        console.log("ArrowUp");
+        if(velocity.y == 1){
             velocity.x = 0;
             velocity.y = 1;
-            break;
-        case "ArrowLeft":
-            console.log("ArrowLeft")
-            velocity.x = -1;
-            velocity.y = 0;
-            break;
-        case "ArrowRight":
-            console.log("ArrowRight")
+        }else{
+            velocity.x = 0;
+            velocity.y = -1;
+        }
+    } else if (e.key === "ArrowDown") {
+        console.log("ArrowDown");
+        if(velocity.y == -1){
+            velocity.x = 0;
+            velocity.y = -1;
+        }else{
+            velocity.x = 0;
+            velocity.y = 1;
+        }
+    } else if (e.key === "ArrowLeft") {
+        console.log("ArrowLeft");
+        if(velocity.x == 1){
             velocity.x = 1;
             velocity.y = 0;
-            break;
-        default:
-            break;
+        }else{
+            velocity.x = -1;
+            velocity.y = 0;
+        }
+    } else if (e.key === "ArrowRight") {
+        console.log("ArrowRight");
+        if(velocity.x == -1){
+            velocity.x = -1;
+            velocity.y = 0;
+        }else{
+            velocity.x = 1;
+            velocity.y = 0;
+        }
+    }    
+})
+btn.addEventListener('click', function(e){
+    speed=prompt("Write a level from 1 to 50");
+    while(speed>50 || speed<1){
+        speed=prompt("Not a valid level...Write a level between 1 and 50")
     }
 })

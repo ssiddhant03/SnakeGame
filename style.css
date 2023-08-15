@@ -33,6 +33,27 @@
     font-family: 'Montserrat Alternates', sans-serif;
 }
 
+#levelBox{
+    position: absolute;
+    top: 30px;
+    right: 130px;
+    font-size: 35px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+#btn{
+    position: absolute;
+    background-color: navy;
+    top: 90px;
+    right: 150px;
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
 #board{
     background: rgba(111, 241, 85, 0.764);
     width: 90vmin;
